@@ -1,0 +1,327 @@
+/* Colors -------- */
+@default: #313131;
+@defaultLight: lighten(@default,50%);
+@defaultLighter: lighten(@default,75%);
+
+@color1: #39C5E5;
+@color1Light: lighten(@color1,20%);
+@color1Lighter: lighten(@color1,38%);
+
+@color2: #FDC701;
+@color2Light: @color2 + #111;
+@color2Lighter: @color2Light + #111;
+
+@color3: #8DCA35;
+@color3Light: @color3 + #111;
+@color3Lighter: @color3Light + #111;
+
+@color4: #E5393C;
+@color4Light: lighten(@color4,20%);
+@color4Lighter: lighten(@color4,38%);
+
+html{
+    padding: 0px;
+} 
+
+body {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-size: 6pt;
+    margin: 0px;
+    color: @default;
+    font-weight: 300;
+    
+    h1{
+        font-size: 18px;
+        margin: 0px;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    input {
+      border-radius: 10px;
+      border: none;
+    }
+    input {
+      transition: all 0.3s ease-in-out;
+      outline: none;
+      padding: 3px 8px 3px 8px;
+    }
+    input:focus {
+      box-shadow: 0 0 5px #51cbee;
+      padding: 3px 8px 3px 8px;
+      border: none;
+    }
+
+    button{
+        cursor: pointer;
+        height: 18px;
+        background-color: white;
+        border: solid 0px #000;
+        padding-top: 0px;
+        border-radius: 10px;
+        position: relative;
+        right: 0px;
+        outline: none;
+    }
+
+    .fa-minus-circle{
+        color: red;
+    }
+    
+    em{
+        background-color: @color1;
+        color: white;
+        font-style: normal;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+#loading{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: white;
+    text-align: center;
+    padding-top: 100px;
+    font-size: 20px;
+}
+
+#taxonomyPanel{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: 0px;
+    font-size: 9pt;
+    width: 200px;
+    box-shadow:  1px 1px 1px 1px #eee;
+    
+    input{
+        width: 140px;
+        font-size: 10pt;
+        background-color: @color1Lighter;
+        border-radius: 10px;
+    }
+    .loadButton{
+        background-color: @color1;
+        width: 200px;
+        color: white;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        border-radius: 0px;
+    }
+    ul{
+        button {
+            position: absolute;
+            right: 0px;
+            top:0px;
+            height: 22px;
+            color: white;
+            background-color: @color3;
+            border-radius: 0px;
+        }
+        margin: 0px;
+        padding-left: 0px;
+        list-style: none;
+        li{
+            margin: 0px;
+            padding: 3px;
+            padding-left: 5px;
+            position: relative;
+            .miniControls{
+                margin: 0px;
+                padding: 0px;
+                position: absolute;
+                right: 2px;
+                top: 0px;
+                display: none;
+                li{
+                    float: left;
+                }
+            }
+        }
+        
+        li:hover{
+            background-color: @color1 + #050505;
+            cursor: pointer;
+        }
+        li:hover .miniControls{
+            display: block;
+        }
+          
+        
+        .taxItem{
+            background-color: white;
+            padding-left: 8px;
+        }
+     
+        .taxHead{
+            font-size: 10pt;
+            background-color: @color1Lighter;
+        }
+    }
+    .taxNot{
+        .taxHead{
+            background-color: @color4Lighter;
+        }  
+    }
+}
+
+#main {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    position: fixed;
+    z-index: -1;
+    left: 200px;
+    bottom: 0px;
+    top: 0px;
+    right: 200px;
+    overflow: auto;
+    background-color: lighten(@color1,43%);
+    
+    .keywords{
+        padding: 0px;
+        margin: 0px;
+        
+        li:hover {
+            background-color: @color1Lighter;
+        }
+        
+        li{
+            padding: 5px;
+            width: 90px;
+            height: 130px;
+            border-radius: 10px;
+            float: left;
+            list-style: none;
+            text-align: center;
+            overflow: hidden;
+            h1{
+                font-size: 12px;
+                padding: 0px;
+            }
+            svg{
+                display: inline-block;
+                .scoreArcBase{
+                    fill: @defaultLighter;
+                }
+                .scoreArc{
+                    fill: @defaultLight;
+                }
+                
+            }
+        }
+    }
+    
+    .venn-sets-word{
+        path {
+            fill: @color2 ;
+        }
+    }
+     .venn-sets-topic{
+        path {
+            fill: @color3 ;
+        }
+    }
+    .venn-area{
+        text{
+            display: none;
+        }
+        path {
+            stroke: @defaultLight;
+            stroke-width: 1px;
+        }
+    }
+}
+
+
+#tweets{
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 200px;
+    overflow: auto;
+    font-size: 9pt;
+    box-shadow:  -1px 1px 1px 1px #eee;
+    ul{
+        margin: 0px;
+        padding: 0px;
+    }
+    li{
+        list-style: none;
+        padding: 5px;
+        border-bottom: solid 1px @color1;
+        margin: 0px;
+    }
+    h1{
+        text-align: right;
+    }
+    
+    
+}
+
+
+.detail {
+    .overlay {
+      position:absolute;
+      z-index:9999;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:@default;
+      opacity: 0.8;
+    }
+    .dialog {
+      /* A centered div above the overlay with a box shadow. */
+      z-index:10000;
+      position: absolute;
+      width: 50%; /* Default */
+
+      /* Center the dialog */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+
+      background-color: #fff;
+      box-shadow: 4px 4px 80px #000;
+        
+    }
+    .content {
+      padding:10px;
+      padding-bottom: 20px;
+      text-align: left;
+        button {
+            background-color: @color1;
+            width: 100px;
+            height: 20px;
+            color: white;
+          
+        }
+    }
+    .close {
+      position: absolute;
+      top: 3px;
+      right: 5px;
+      padding: 5px;
+      cursor: pointer;
+      font-size: 120%;
+      display: inline-block;
+      font-weight: bold;
+      font-family: 'arial', 'sans-serif';
+    }
+}
+
+.keywords {
+    fill: green;
+    fill-opacity: 0.5;
+}
